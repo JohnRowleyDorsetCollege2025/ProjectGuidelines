@@ -127,12 +127,59 @@
 
     <section class="card" aria-labelledby="videos-heading" style="margin-top: 24px;">
       <h2 id="videos-heading">YouTube videos</h2>
-      <ul>
-        <li><a href="https://youtu.be/kr2r3Jn7VNo" target="_blank" rel="noopener noreferrer">Git Strategy</a></li>
-      </ul>
+      <ul id="youtube-links"></ul>
+      <p class="note" id="youtube-status" role="status">Loading videos...</p>
     </section>
 
     <div class="footer">Final-Year Software Development Project</div>
   </main>
+  <script>
+    async function loadYoutubeVideos() {
+      const videoList = document.getElementById("youtube-links");
+      const status = document.getElementById("youtube-status");
+
+      try {
+        const response = await fetch("youtube.json");
+        if (!response.ok) {
+          throw new Error("Could not load youtube.json");
+        }
+
+        const videos = await response.json();
+        if (!Array.isArray(videos)) {
+          throw new Error("youtube.json must contain a list of videos");
+        }
+
+        const fragment = document.createDocumentFragment();
+        for (const video of videos) {
+          if (typeof video.title !== "string" || typeof video.url !== "string") {
+            continue;
+          }
+
+          const url = new URL(video.url);
+          if (url.protocol !== "https:") {
+            continue;
+          }
+
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = url.href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = video.title;
+          item.append(link);
+          fragment.append(item);
+        }
+
+        videoList.append(fragment);
+        status.textContent = videoList.children.length
+          ? `${videoList.children.length} video${videoList.children.length === 1 ? "" : "s"} loaded.`
+          : "No video links are available.";
+      } catch {
+        status.textContent = "Could not load video links. Make sure this page and youtube.json are served from the same location.";
+      }
+    }
+
+    loadYoutubeVideos();
+  </script>
 </body>
 </html>
