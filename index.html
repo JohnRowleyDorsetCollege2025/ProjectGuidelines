@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Final-Year Project Specification Prompt</title>
+  <title>Table of Contents | Final-Year Software Development</title>
   <style>
     :root {
       --bg: #f5f7fb;
@@ -11,12 +11,8 @@
       --ink: #172033;
       --muted: #667085;
       --accent: #2f5bea;
-      --accent-soft: #eef3ff;
       --border: #e4e8f0;
-      --warning: #fff6e8;
-      --warning-border: #f0c36d;
       --shadow: 0 12px 30px rgba(20, 33, 61, 0.08);
-      --radius: 18px;
     }
     * { box-sizing: border-box; }
     body {
@@ -28,7 +24,7 @@
       line-height: 1.65;
     }
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(900px, calc(100% - 32px));
       margin: 0 auto;
       padding: 48px 0 64px;
     }
@@ -60,73 +56,58 @@
       font-size: 1.05rem;
       color: rgba(255,255,255,0.9);
     }
-    .grid {
+    .content-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
       align-items: start;
     }
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 18px;
       padding: 28px;
       box-shadow: var(--shadow);
-      margin-bottom: 24px;
     }
     h2 {
       margin: 0 0 14px;
       font-size: 1.35rem;
     }
-    .project-idea {
-      background: var(--accent-soft);
-      border: 1px solid #cdd9ff;
-      padding: 18px;
-      border-radius: 14px;
-      font-weight: 700;
-      color: #183a9b;
-      margin: 16px 0 6px;
-    }
-    ul, ol {
+    ul {
       margin: 14px 0 0;
       padding-left: 1.35rem;
     }
-    li { margin: 8px 0; }
-    .must-list li::marker { color: var(--accent); }
-    .warning {
-      background: var(--warning);
-      border: 1px solid var(--warning-border);
-      border-left: 5px solid #e4a637;
-      border-radius: 14px;
-      padding: 18px 20px;
-      margin-top: 18px;
+    li { margin: 10px 0; }
+    li::marker { color: var(--accent); }
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
     }
-    .warning strong { color: #7b5312; }
-    .section-list {
-      columns: 2;
-      column-gap: 32px;
-      padding-left: 1.4rem;
-    }
-    .section-list li {
-      break-inside: avoid;
-      margin: 7px 0;
+    a:hover { color: #183a9b; }
+    a:focus-visible {
+      outline: 3px solid #8ba5ff;
+      outline-offset: 3px;
+      border-radius: 2px;
     }
     .note {
       color: var(--muted);
       font-size: 0.95rem;
-      margin-top: 14px;
+      margin: 14px 0 0;
     }
     .footer {
       text-align: center;
       color: var(--muted);
       font-size: 0.9rem;
-      padding-top: 8px;
+      padding-top: 24px;
     }
-    @media (max-width: 820px) {
-      .grid { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
       .hero { padding: 30px 24px; }
-      .section-list { columns: 1; }
       .card { padding: 22px; }
+    }
+    @media (max-width: 700px) {
+      .content-grid { grid-template-columns: 1fr; }
     }
     @media print {
       body { background: #fff; }
@@ -139,90 +120,75 @@
   <main class="container">
     <section class="hero">
       <div class="eyebrow">Final-Year Software Development</div>
-      <h1>Project Specification Prompt</h1>
-      <p>
-        Use this prompt to generate a realistic project specification that meets the expected
-        technical standard for a final-year software development project.
-      </p>
+      <h1>Guidelines for project success</h1>
+      <p>A set of tips and videos to help you succeed in your final-year project.</p>
     </section>
 
-    <div class="grid">
-      <div>
-        <section class="card">
-          <h2>1. Start with your project idea</h2>
-          <p>Create a project specification for this idea:</p>
-          <div class="project-idea">Project idea: [insert your idea]</div>
-          <p class="note">
-            Your specification should explain the main users, features, workflows, data,
-            and technical approach.
-          </p>
-        </section>
+    <div class="content-grid">
+      <section class="card" aria-labelledby="documents-heading">
+        <h2 id="documents-heading">Project documents</h2>
+        <ul>
+          <li><a href="final_year_project_prompt.html">#1: Final-Year Project Specification Prompt</a></li>
+        </ul>
+        <p class="note">Each link opens the corresponding HTML file in this project.</p>
+      </section>
 
-        <section class="card">
-          <h2>2. Your project must</h2>
-          <ul class="must-list">
-            <li>Use an established authentication solution such as ASP.NET Core Identity, Keycloak, Auth0, or equivalent.</li>
-            <li>Include user roles and an admin area for managing users.</li>
-            <li>Protect privileged routes and demonstrate token/session expiry.</li>
-            <li>Use a clear application architecture and persistent data storage.</li>
-            <li>Include meaningful business logic, not just simple CRUD screens.</li>
-            <li>Use APIs or external services where appropriate.</li>
-            <li>Demonstrate messaging using RabbitMQ, Azure Service Bus, or similar.</li>
-            <li>Include payments or subscriptions using Stripe or a similar API.</li>
-            <li>Allow users or administrators to view and manage subscription status, including cancellation and renewal where appropriate.</li>
-            <li>Handle payment/subscription events using appropriate mechanisms such as webhooks.</li>
-            <li>Include automated testing.</li>
-            <li>Use Git with regular, meaningful commits.</li>
-            <li>Be deployable outside your local development machine.</li>
-            <li>Include suitable technical documentation.</li>
-            <li>Consider usability, responsiveness, and accessibility.</li>
-            <li>Be fully understood by you so that you can explain your technical decisions.</li>
-          </ul>
-
-          <div class="warning">
-            <strong>Important:</strong> Do not propose a project built mainly with low-code,
-            no-code, drag-and-drop, or UI-generation tools. Mobile frameworks such as React Native,
-            Flutter, .NET MAUI, or Expo are acceptable only where you are writing and understanding
-            the application code yourself.
-          </div>
-        </section>
-      </div>
-
-      <aside>
-        <section class="card">
-          <h2>3. Structure your specification</h2>
-          <ol class="section-list">
-            <li>Project Overview</li>
-            <li>Users and Roles</li>
-            <li>Core Features</li>
-            <li>Security</li>
-            <li>Architecture</li>
-            <li>Data</li>
-            <li>APIs / Integrations</li>
-            <li>Messaging</li>
-            <li>Payments / Subscriptions</li>
-            <li>Testing</li>
-            <li>Source Control</li>
-            <li>Deployment</li>
-            <li>UX / Accessibility</li>
-            <li>Documentation</li>
-            <li>Final Demonstration</li>
-          </ol>
-        </section>
-
-        <section class="card">
-          <h2>4. Keep it realistic</h2>
-          <p>
-            Keep the scope achievable for a final-year project. The aim is to demonstrate sound
-            software engineering, not unnecessary complexity.
-          </p>
-        </section>
-      </aside>
+      <section class="card" aria-labelledby="videos-heading">
+        <h2 id="videos-heading">YouTube videos</h2>
+        <ul id="youtube-links"></ul>
+        <p class="note" id="youtube-status" role="status">Loading videos...</p>
+      </section>
     </div>
 
-    <div class="footer">
-      Final-Year Software Development Project Specification Prompt
-    </div>
+    <div class="footer">Final-Year Software Development Project</div>
   </main>
+  <script>
+    async function loadYoutubeVideos() {
+      const videoList = document.getElementById("youtube-links");
+      const status = document.getElementById("youtube-status");
+
+      try {
+        const response = await fetch("youtube.json");
+        if (!response.ok) {
+          throw new Error("Could not load youtube.json");
+        }
+
+        const videos = await response.json();
+        if (!Array.isArray(videos)) {
+          throw new Error("youtube.json must contain a list of videos");
+        }
+
+        const fragment = document.createDocumentFragment();
+        for (const video of videos) {
+          if (typeof video.title !== "string" || typeof video.url !== "string") {
+            continue;
+          }
+
+          const url = new URL(video.url);
+          if (url.protocol !== "https:") {
+            continue;
+          }
+
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = url.href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = video.title;
+          item.append(link);
+          fragment.append(item);
+        }
+
+        videoList.append(fragment);
+        status.textContent = videoList.children.length
+          ? `${videoList.children.length} video${videoList.children.length === 1 ? "" : "s"} loaded.`
+          : "No video links are available.";
+      } catch {
+        status.textContent = "Could not load video links. Make sure this page and youtube.json are served from the same location.";
+      }
+    }
+
+    loadYoutubeVideos();
+  </script>
 </body>
 </html>
