@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final-Year Software Development – Minimum Technical Standards</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#667085;--accent:#2f5bea;--accent2:#213a8f;--soft:#eef3ff;--border:#e4e8f0;--warn:#fff7e8;--warnborder:#e5b856;--shadow:0 12px 30px rgba(20,33,61,.08);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at top left,rgba(47,91,234,.10),transparent 30%),linear-gradient(180deg,#f9fbff 0%,var(--bg) 100%);line-height:1.65}
+.page{width:min(1280px,calc(100% - 32px));margin:0 auto;padding:40px 0 64px}.hero{background:linear-gradient(135deg,var(--accent2) 0%,var(--accent) 58%,#6785fb 100%);color:#fff;padding:42px;border-radius:24px;box-shadow:var(--shadow);margin-bottom:28px}.eyebrow{display:inline-block;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-bottom:10px;opacity:.9}h1{margin:0 0 12px;font-size:clamp(2rem,4.7vw,3.35rem);line-height:1.08}.hero p{margin:0;max-width:860px;color:rgba(255,255,255,.9);font-size:1.05rem}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:24px;align-items:start}.sidebar{position:sticky;top:20px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}.sidebar h2{font-size:1rem;margin:0 0 12px}.nav{display:grid;gap:6px}.nav a{color:var(--ink);text-decoration:none;font-size:.92rem;line-height:1.35;padding:8px 10px;border-radius:9px}.nav a:hover{background:var(--soft);color:var(--accent2)}
+.intro-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);margin-bottom:18px;scroll-margin-top:18px}.intro-card h2{margin:0 0 10px;font-size:1.35rem}
+.accordion{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:18px}.accordion summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px 1fr 26px;gap:12px;align-items:center;padding:20px 22px;font-weight:800;font-size:1.05rem;background:linear-gradient(180deg,#fff 0%,#fbfcff 100%)}.accordion summary::-webkit-details-marker{display:none}.section-number{width:36px;height:36px;display:inline-grid;place-items:center;border-radius:10px;background:var(--soft);color:var(--accent2);font-size:.92rem}.chevron{font-size:1.25rem;color:var(--muted);transition:transform .2s ease}details[open] .chevron{transform:rotate(180deg)}.accordion-body{padding:0 24px 26px 78px;border-top:1px solid var(--border)}.accordion-body h3{margin:26px 0 8px;color:var(--accent2);font-size:1.05rem}.accordion-body p{margin:10px 0}.content-list{margin:8px 0 14px;padding-left:1.25rem}.content-list li{margin:6px 0}.content-list li::marker{color:var(--accent)}.important-line{background:var(--warn);border-left:4px solid var(--warnborder);padding:12px 14px;border-radius:10px;font-weight:700}.footer{text-align:center;color:var(--muted);font-size:.9rem;margin-top:28px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:static}.nav{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.page{width:min(100% - 20px,1280px);padding-top:20px}.hero{padding:28px 22px}.nav{grid-template-columns:1fr}.accordion summary{grid-template-columns:38px 1fr 22px;padding:16px}.accordion-body{padding:0 18px 22px}}@media print{body{background:#fff}.page{width:100%;padding:0}.sidebar{display:none}.layout{display:block}.hero,.accordion,.intro-card{box-shadow:none}details>*{display:block!important}.chevron{display:none}}
+</style></head>
+<body><main class="page"><section class="hero"><div class="eyebrow">Final-Year Software Development</div><h1>Minimum Technical Standards</h1><p>A practical reference for the technical, architectural, security, testing, deployment, documentation, and professional standards expected of final-year software development projects.</p></section>
+<div class="layout"><aside class="sidebar"><h2>Section Index</h2><nav class="nav"><a href="#purpose">Purpose</a><a href="#section-1">1. Acceptable Development Approach</a><a href="#section-2">2. User Management &amp; Security</a><a href="#section-3">3. Application Architecture</a><a href="#section-4">4. Data Management</a><a href="#section-5">5. Functional Requirements</a><a href="#section-6">6. API / Integration</a><a href="#section-7">7. Testing &amp; Quality</a><a href="#section-8">8. Source Control &amp; Development Process</a><a href="#section-9">9. Deployment &amp; DevOps</a><a href="#section-10">10. Documentation</a><a href="#section-11">11. UX &amp; Accessibility</a><a href="#section-12">12. Project Demonstration &amp; Technical Understanding</a><a href="#overall-principle">Overall Principle</a></nav></aside><section class="content"><section class="intro-card" id="purpose"><h2>Purpose</h2><p>The purpose of these guidelines is to establish a minimum technical standard expected of final-year software development projects.</p><p>Students are expected to demonstrate more than the ability to build a working application. A final-year project should provide evidence that the student understands modern software development practices, application architecture, security, data management, testing, deployment, source control, documentation, and software quality.</p><p>The complexity and implementation details of individual projects will vary. Where a student wishes to use an alternative technology, architecture, library, framework, or approach to those suggested in this document, this should be discussed with the project supervisor.</p><p>Students must be able to explain and justify the major technical decisions made during the development of their project.</p></section><details class="accordion" id="section-1" open>
+<summary><span class="section-number">1</span><span>Acceptable Development Approach</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><h3>1.1 Low-Code, No-Code and UI-Generation Tools</h3>
+<p>Final-year software development projects must demonstrate substantial software development and software engineering work carried out by the student.</p>
+<p class="important-line">Applications that are built primarily using low-code, no-code, drag-and-drop, visual application builders, or automated UI-generation tools will not be accepted as final-year software development projects.</p>
+<p>This requirement is particularly important for mobile application projects, where a wide range of platforms can generate substantial parts of an application without requiring the student to implement the underlying software.</p>
+<p>Examples of tools and approaches that require particular caution include:</p>
+<ul class="content-list">
+<li>AppGyver and similar low-code application platforms.</li>
+<li>Visual application builders.</li>
+<li>Drag-and-drop mobile application development platforms.</li>
+<li>Tools that automatically generate most of the application&#x27;s screens, navigation, data access, or business logic.</li>
+<li>AI or template-based systems that generate a substantially complete application from prompts or configuration.</li>
+<li>UI-generation workflows that remove the need for the student to implement the application&#x27;s user interface and behaviour directly.</li>
+</ul>
+<p>Frameworks and development tools may, of course, provide scaffolding, components, libraries, templates, and development assistance. However, there must remain substantial evidence that the student has personally designed and implemented the application&#x27;s:</p>
+<ul class="content-list">
+<li>User interface.</li>
+<li>Application logic.</li>
+<li>Data flow.</li>
+<li>Navigation.</li>
+<li>State management.</li>
+<li>Validation.</li>
+<li>Integration logic.</li>
+<li>Security.</li>
+<li>Error handling.</li>
+</ul>
+<h3>Mobile Development</h3>
+<p>For mobile applications, students should use recognised software development frameworks and demonstrate meaningful implementation using code.</p>
+<p>Suitable examples may include:</p>
+<ul class="content-list">
+<li>.NET MAUI.</li>
+<li>React Native.</li>
+<li>Flutter.</li>
+<li>Native Android development.</li>
+<li>Native iOS development.</li>
+<li>Other supervisor-approved development frameworks.</li>
+</ul>
+<p>Tools such as Expo may be used where they act as part of a normal coded development workflow, for example as tooling around a React Native application.</p>
+<p class="important-line">However, students must not rely on Expo-based application generators, visual builders, templates, or similar tooling to generate the majority of the application&#x27;s interface or functionality.</p>
+<p>The distinction is important:</p>
+<p>Using a framework or development tool is acceptable. Using a tool that effectively builds the application on the student&#x27;s behalf is not.</p>
+<h3>Supervisor Approval</h3>
+<p>Where there is uncertainty about whether a particular platform, UI builder, code generator, AI development environment, or application-generation tool is acceptable, students must obtain approval from their supervisor before committing to that technology.</p>
+<p>The supervisor may require the student to demonstrate:</p>
+<ul class="content-list">
+<li>Which parts of the application are manually implemented.</li>
+<li>Which parts are generated.</li>
+<li>What code the student is responsible for.</li>
+<li>How much technical control the student retains over the application.</li>
+<li>Whether the project provides sufficient opportunity to demonstrate final-year software engineering ability.</li>
+</ul>
+<p>A project may be rejected if its chosen development approach substantially limits the student&#x27;s ability to demonstrate programming, architecture, testing, debugging, security, and technical understanding.</p></div></details><details class="accordion" id="section-2" open>
+<summary><span class="section-number">2</span><span>User Management &amp; Security</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><h3>2.1 User Management</h3>
+<p>All projects that involve users must demonstrate an ability to manage application users.</p>
+<p>The application must provide an administrative interface or dashboard that enables authorised users to:</p>
+<ul class="content-list">
+<li>Create users.</li>
+<li>View users.</li>
+<li>Update user details.</li>
+<li>Remove or deactivate users.</li>
+</ul>
+<p>Where appropriate, additional functionality may include:</p>
+<ul class="content-list">
+<li>Resetting user access.</li>
+<li>Assigning or changing roles.</li>
+<li>Locking or disabling accounts.</li>
+<li>Viewing basic account status information.</li>
+</ul>
+<p>Third-party user-management platforms may be used, but their use must be approved by the project supervisor.</p>
+<h3>2.2 Authentication</h3>
+<p class="important-line">Students must not implement their own authentication mechanism.</p>
+<p>Authentication must use an established and well-supported framework, library, or identity-management platform.</p>
+<p>Suitable examples include:</p>
+<ul class="content-list">
+<li>ASP.NET Core Identity.</li>
+<li>Keycloak.</li>
+<li>Microsoft Entra ID / Entra External ID.</li>
+<li>Auth0.</li>
+<li>Other supervisor-approved solutions.</li>
+</ul>
+<p>Where appropriate, the use of a dedicated identity provider such as Keycloak is encouraged.</p>
+<p class="important-line">Students must not create their own mechanisms for:</p>
+<ul class="content-list">
+<li>Password hashing.</li>
+<li>Password storage.</li>
+<li>Credential validation.</li>
+<li>Authentication token generation where an established solution is available.</li>
+<li>Session security.</li>
+</ul>
+<h3>2.3 Authorisation</h3>
+<p>The project must demonstrate authorisation as well as authentication.</p>
+<p>At a minimum, applications should normally distinguish between two levels of access, for example:</p>
+<ul class="content-list">
+<li>Administrator.</li>
+<li>Standard User.</li>
+</ul>
+<p>More complex applications may use additional roles or permission-based access control.</p>
+<p>Students must demonstrate that users cannot access functionality for which they do not have permission.</p>
+<h3>2.4 Protected Routes and Resources</h3>
+<p class="important-line">Privileged routes and application resources must be protected.</p>
+<p>Students must demonstrate that:</p>
+<ul class="content-list">
+<li>Unauthenticated users cannot access protected functionality.</li>
+<li>Authenticated users cannot access functionality outside their assigned permissions.</li>
+<li>Administrative functionality is available only to appropriately authorised users.</li>
+<li>API endpoints are protected where appropriate.</li>
+<li>Access control is enforced on the server or API.</li>
+</ul>
+<p class="important-line">Simply hiding a menu item, button, screen, or client-side route is not considered sufficient access control.</p>
+<h3>2.5 Token and Session Expiry</h3>
+<p>Applications must demonstrate appropriate token and/or session management.</p>
+<p>Students must demonstrate:</p>
+<ul class="content-list">
+<li>Token or session expiry.</li>
+<li>Appropriate handling of expired authentication.</li>
+<li>Prevention of continued access after authentication has expired.</li>
+<li>Re-authentication where appropriate.</li>
+</ul>
+<p>Students should be able to explain:</p>
+<ul class="content-list">
+<li>What authentication mechanism is being used.</li>
+<li>What tokens or sessions are created.</li>
+<li>How long they remain valid.</li>
+<li>What happens when they expire.</li>
+</ul>
+<h3>2.6 Security</h3>
+<p>Projects should follow recognised secure-development practices.</p>
+<p>Students should consider areas such as:</p>
+<ul class="content-list">
+<li>Input validation.</li>
+<li>Protection against SQL injection.</li>
+<li>Cross-site scripting.</li>
+<li>Cross-site request forgery where applicable.</li>
+<li>Secure handling of credentials and secrets.</li>
+<li>Appropriate HTTP security configuration.</li>
+<li>Principle of least privilege.</li>
+<li>Secure error handling.</li>
+<li>Protection of sensitive data.</li>
+</ul>
+<p class="important-line">Secrets, API keys, passwords, connection strings, or other credentials must not be committed directly to source control.</p></div></details><details class="accordion" id="section-3">
+<summary><span class="section-number">3</span><span>Application Architecture</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>Students must demonstrate that their application has been designed rather than simply assembled as development progresses.</p>
+<h3>3.1 Separation of Responsibilities</h3>
+<p>Applications should demonstrate appropriate separation of concerns.</p>
+<p>Depending on the technology used, this may include separation between:</p>
+<ul class="content-list">
+<li>Presentation/UI.</li>
+<li>Business or application logic.</li>
+<li>Data access.</li>
+<li>External integrations.</li>
+<li>Authentication and security.</li>
+<li>Infrastructure concerns.</li>
+</ul>
+<p>Large amounts of business logic should not reside directly inside controllers, UI components, or views.</p>
+<h3>3.2 Architectural Structure</h3>
+<p>Students should adopt an architecture appropriate to the size and complexity of the project.</p>
+<p>Possible approaches include:</p>
+<ul class="content-list">
+<li>Layered architecture.</li>
+<li>Clean Architecture.</li>
+<li>Vertical Slice Architecture.</li>
+<li>Modular monolith.</li>
+<li>Client/server architecture.</li>
+<li>Other recognised architectures.</li>
+</ul>
+<p>Students are not required to use a particular architecture solely for the sake of complexity.</p>
+<p>The architecture chosen should be appropriate to the project.</p>
+<h3>3.3 Dependency Management</h3>
+<p>Applications should make appropriate use of:</p>
+<ul class="content-list">
+<li>Dependency injection.</li>
+<li>Interfaces and abstractions where they provide value.</li>
+<li>Configuration management.</li>
+<li>Reusable services and components.</li>
+</ul>
+<p>Students should avoid unnecessary duplication and excessive coupling between application components.</p>
+<h3>3.4 Maintainability</h3>
+<p>Code should demonstrate:</p>
+<ul class="content-list">
+<li>Meaningful naming.</li>
+<li>Logical organisation.</li>
+<li>Appropriate class and method sizes.</li>
+<li>Reuse where appropriate.</li>
+<li>Avoidance of unnecessary duplication.</li>
+<li>Consistent coding conventions.</li>
+</ul>
+<p>Students should be able to explain the major components of their application and how those components interact.</p></div></details><details class="accordion" id="section-4">
+<summary><span class="section-number">4</span><span>Data Management</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>Most projects will be expected to demonstrate meaningful persistent data storage.</p>
+<h3>4.1 Persistent Storage</h3>
+<p>Applications should use an appropriate persistent data-storage technology such as:</p>
+<ul class="content-list">
+<li>Relational database.</li>
+<li>Document database.</li>
+<li>Cloud-hosted database.</li>
+<li>Other supervisor-approved data-storage mechanism.</li>
+</ul>
+<p>Examples include SQL Server, PostgreSQL, MySQL, SQLite, MongoDB, Cosmos DB, or equivalent technologies.</p>
+<h3>4.2 Data Modelling</h3>
+<p>Students must demonstrate appropriate data modelling.</p>
+<p>This should include consideration of:</p>
+<ul class="content-list">
+<li>Entities or documents.</li>
+<li>Relationships.</li>
+<li>Primary identifiers.</li>
+<li>Required and optional values.</li>
+<li>Appropriate data types.</li>
+<li>Data constraints.</li>
+<li>Referential integrity where applicable.</li>
+</ul>
+<h3>4.3 CRUD Operations</h3>
+<p>The application should normally demonstrate meaningful:</p>
+<ul class="content-list">
+<li>Create.</li>
+<li>Read.</li>
+<li>Update.</li>
+<li>Delete or deactivate.</li>
+</ul>
+<p>operations against application data.</p>
+<p>CRUD operations should form part of genuine application functionality rather than existing solely to satisfy this requirement.</p>
+<h3>4.4 Validation</h3>
+<p>Data must be validated appropriately.</p>
+<p>Validation should occur at appropriate boundaries and should not rely exclusively on client-side validation.</p>
+<h3>4.5 Database Management</h3>
+<p>Students should demonstrate an appropriate approach to database creation and change management.</p>
+<p>Where supported by the chosen technology, this may include:</p>
+<ul class="content-list">
+<li>Database migrations.</li>
+<li>Schema versioning.</li>
+<li>Seed data.</li>
+<li>Deployment scripts.</li>
+</ul>
+<h3>4.6 Sensitive Data</h3>
+<p>Sensitive information should be stored appropriately.</p>
+<p>Students must be able to explain which data within their application is sensitive and what measures have been taken to protect it.</p></div></details><details class="accordion" id="section-5">
+<summary><span class="section-number">5</span><span>Functional Requirements</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>The project must solve a clearly identified problem and provide meaningful functionality.</p>
+<h3>5.1 Core Functionality</h3>
+<p>The final system must contain sufficient functionality to demonstrate final-year development ability.</p>
+<p>The project should not consist primarily of:</p>
+<ul class="content-list">
+<li>Static information pages.</li>
+<li>Simple CRUD screens.</li>
+<li>A direct copy of a classroom tutorial.</li>
+<li>A thin user interface over a single third-party API.</li>
+</ul>
+<p>CRUD functionality may form part of the project but should normally support a broader business or application workflow.</p>
+<h3>5.2 Business Logic</h3>
+<p>Projects should contain meaningful application or business logic.</p>
+<p>Examples may include:</p>
+<ul class="content-list">
+<li>Rules.</li>
+<li>Calculations.</li>
+<li>Workflows.</li>
+<li>Scheduling.</li>
+<li>Approval processes.</li>
+<li>Data transformation.</li>
+<li>Search or filtering.</li>
+<li>Notifications.</li>
+<li>State transitions.</li>
+<li>Reporting.</li>
+</ul>
+<h3>5.3 Error Handling</h3>
+<p>Applications must deal appropriately with expected error conditions.</p>
+<p>Users should receive meaningful feedback rather than raw system exceptions.</p>
+<h3>5.4 Configuration</h3>
+<p>Environment-specific values should be configurable rather than hard-coded.</p>
+<p>Examples include:</p>
+<ul class="content-list">
+<li>API URLs.</li>
+<li>Connection strings.</li>
+<li>Feature settings.</li>
+<li>Authentication settings.</li>
+<li>External service configuration.</li>
+</ul></div></details><details class="accordion" id="section-6">
+<summary><span class="section-number">6</span><span>API / Integration</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>Where appropriate, students should demonstrate interaction between separate software components.</p>
+<h3>6.1 API Development</h3>
+<p>Projects that expose an API should follow established HTTP and REST conventions where applicable.</p>
+<p>Students should consider:</p>
+<ul class="content-list">
+<li>Appropriate HTTP verbs.</li>
+<li>Appropriate status codes.</li>
+<li>Request and response models.</li>
+<li>Validation.</li>
+<li>Authentication.</li>
+<li>Authorisation.</li>
+<li>Consistent error responses.</li>
+</ul>
+<h3>6.2 API Documentation</h3>
+<p>APIs should be documented using an appropriate mechanism such as:</p>
+<ul class="content-list">
+<li>OpenAPI.</li>
+<li>Swagger.</li>
+<li>Equivalent API documentation tooling.</li>
+</ul>
+<h3>6.3 External Services</h3>
+<p>Projects are encouraged to integrate with at least one external or independently deployed service where this provides genuine value.</p>
+<p>Examples include:</p>
+<ul class="content-list">
+<li>External APIs.</li>
+<li>Payment systems.</li>
+<li>Mapping services.</li>
+<li>Messaging services.</li>
+<li>Email services.</li>
+<li>Cloud services.</li>
+<li>Identity providers.</li>
+<li>AI services.</li>
+</ul>
+<p>Students must understand what data is being exchanged with external systems.</p>
+<h3>6.4 Integration Failure</h3>
+<p>Applications should handle external-service failure appropriately.</p>
+<p>A temporary failure of an external API should not result in uncontrolled application failure.</p></div></details><details class="accordion" id="section-7">
+<summary><span class="section-number">7</span><span>Testing &amp; Quality</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p class="important-line">Testing must form part of the development process and must not be treated solely as a final-stage activity.</p>
+<h3>7.1 Automated Testing</h3>
+<p>Projects should contain automated tests appropriate to the application.</p>
+<p>These may include:</p>
+<ul class="content-list">
+<li>Unit tests.</li>
+<li>Integration tests.</li>
+<li>API tests.</li>
+<li>End-to-end tests.</li>
+</ul>
+<h3>7.2 Meaningful Tests</h3>
+<p>Students should concentrate testing effort on meaningful application behaviour.</p>
+<p>Tests should cover areas such as:</p>
+<ul class="content-list">
+<li>Important business rules.</li>
+<li>Validation.</li>
+<li>Authorisation.</li>
+<li>Data access.</li>
+<li>Critical workflows.</li>
+<li>Error conditions.</li>
+</ul>
+<p>A large number of trivial tests is not necessarily evidence of good testing.</p>
+<h3>7.3 Test Organisation</h3>
+<p>Tests should be:</p>
+<ul class="content-list">
+<li>Repeatable.</li>
+<li>Understandable.</li>
+<li>Independent where possible.</li>
+<li>Maintained alongside the application.</li>
+</ul>
+<h3>7.4 End-to-End Testing</h3>
+<p>Where appropriate, students should demonstrate automated testing of significant user workflows using tools such as:</p>
+<ul class="content-list">
+<li>Playwright.</li>
+<li>Cypress.</li>
+<li>Selenium.</li>
+<li>Equivalent technologies.</li>
+</ul>
+<h3>7.5 Code Quality</h3>
+<p>Students should make reasonable use of:</p>
+<ul class="content-list">
+<li>Compiler warnings.</li>
+<li>Static analysis.</li>
+<li>IDE inspections.</li>
+<li>Formatting tools.</li>
+<li>Code reviews where applicable.</li>
+</ul>
+<p>The submitted project should not contain large quantities of unresolved warnings or obviously dead code.</p></div></details><details class="accordion" id="section-8">
+<summary><span class="section-number">8</span><span>Source Control &amp; Development Process</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><h3>8.1 Source Control</h3>
+<p>All projects must use Git or another supervisor-approved version-control system.</p>
+<p>The project repository should demonstrate continuous development throughout the project.</p>
+<h3>8.2 Commit History</h3>
+<p>Students should make regular, meaningful commits.</p>
+<p>Commit messages should describe the change made.</p>
+<p>Projects should avoid:</p>
+<ul class="content-list">
+<li>A single final commit containing most of the application.</li>
+<li>Large numbers of meaningless commits such as update, fix, or changes.</li>
+<li>Committing generated files unnecessarily.</li>
+<li>Committing secrets.</li>
+</ul>
+<h3>8.3 Branching</h3>
+<p>Students should demonstrate an appropriate branching strategy.</p>
+<p>This does not need to be unnecessarily complex.</p>
+<p>Possible approaches include:</p>
+<ul class="content-list">
+<li>GitHub Flow.</li>
+<li>Trunk-based development.</li>
+<li>Feature branches.</li>
+</ul>
+<h3>8.4 Issue / Task Management</h3>
+<p>Students should maintain a record of project work using an appropriate system.</p>
+<p>Examples include:</p>
+<ul class="content-list">
+<li>GitHub Issues.</li>
+<li>Jira.</li>
+<li>Azure DevOps.</li>
+<li>GitLab Issues.</li>
+<li>Equivalent project-management tooling.</li>
+</ul>
+<p>Tasks should show evidence of planning and incremental development.</p>
+<h3>8.5 Pull Requests</h3>
+<p>Where practical, students should demonstrate familiarity with pull requests or merge requests.</p>
+<p>This may include reviewing their own changes before merging where the project is individually developed.</p></div></details><details class="accordion" id="section-9">
+<summary><span class="section-number">9</span><span>Deployment &amp; DevOps</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>A final-year project should demonstrate that the application can operate outside the student&#x27;s development environment.</p>
+<h3>9.1 Deployment</h3>
+<p>The completed application should normally be deployed to an environment that can be demonstrated independently of the developer&#x27;s machine.</p>
+<p>Possible deployment environments include:</p>
+<ul class="content-list">
+<li>Azure.</li>
+<li>AWS.</li>
+<li>Google Cloud.</li>
+<li>Docker-based hosting.</li>
+<li>University infrastructure.</li>
+<li>Other supervisor-approved platforms.</li>
+</ul>
+<h3>9.2 Build Process</h3>
+<p>The project should have a documented and repeatable build process.</p>
+<p>Another developer should be able to obtain the source code and determine how to build and run the application.</p>
+<h3>9.3 Continuous Integration</h3>
+<p>Projects should, where feasible, include a CI pipeline.</p>
+<p>The pipeline may perform activities such as:</p>
+<ul class="content-list">
+<li>Restore dependencies.</li>
+<li>Compile/build.</li>
+<li>Run automated tests.</li>
+<li>Perform static analysis.</li>
+<li>Produce deployment artefacts.</li>
+</ul>
+<h3>9.4 Continuous Deployment</h3>
+<p>Automated deployment is encouraged where appropriate but may not be mandatory for every project.</p>
+<h3>9.5 Environment Configuration</h3>
+<p>Students should demonstrate a clear distinction between environments where appropriate, for example:</p>
+<ul class="content-list">
+<li>Development.</li>
+<li>Test.</li>
+<li>Production.</li>
+</ul>
+<p>Secrets and environment-specific configuration must be managed securely.</p>
+<h3>9.6 Containers</h3>
+<p>Containerisation using technologies such as Docker is encouraged where it provides genuine value.</p>
+<p>Students using containers must understand how their containerised application operates.</p></div></details><details class="accordion" id="section-10">
+<summary><span class="section-number">10</span><span>Documentation</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>Documentation must be sufficient for another technically competent person to understand, build, run, and evaluate the project.</p>
+<h3>10.1 README</h3>
+<p>The repository should contain a clear README containing, at minimum:</p>
+<ul class="content-list">
+<li>Project purpose.</li>
+<li>Main features.</li>
+<li>Technologies used.</li>
+<li>Prerequisites.</li>
+<li>Installation instructions.</li>
+<li>Configuration requirements.</li>
+<li>Build instructions.</li>
+<li>Run instructions.</li>
+<li>Testing instructions.</li>
+<li>Deployment information where relevant.</li>
+</ul>
+<h3>10.2 Architecture Documentation</h3>
+<p>Students should provide an overview of the system architecture.</p>
+<p>This may include diagrams showing:</p>
+<ul class="content-list">
+<li>Major components.</li>
+<li>Databases.</li>
+<li>APIs.</li>
+<li>External systems.</li>
+<li>Authentication services.</li>
+<li>Communication between components.</li>
+</ul>
+<h3>10.3 Database Documentation</h3>
+<p>Where appropriate, students should provide:</p>
+<ul class="content-list">
+<li>ER diagrams.</li>
+<li>Schema diagrams.</li>
+<li>Document structures.</li>
+<li>Data-model descriptions.</li>
+</ul>
+<h3>10.4 API Documentation</h3>
+<p>APIs should be documented sufficiently for another developer to understand how they are used.</p>
+<h3>10.5 Design Decisions</h3>
+<p>Students should document significant architectural or technical decisions and provide the reasoning behind them.</p></div></details><details class="accordion" id="section-11">
+<summary><span class="section-number">11</span><span>UX &amp; Accessibility</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>Applications should demonstrate that consideration has been given to the people who will use them.</p>
+<h3>11.1 User Experience</h3>
+<p>Interfaces should be:</p>
+<ul class="content-list">
+<li>Consistent.</li>
+<li>Understandable.</li>
+<li>Navigable.</li>
+<li>Responsive where appropriate.</li>
+<li>Designed around expected user workflows.</li>
+</ul>
+<h3>11.2 User Feedback</h3>
+<p>Applications should provide appropriate feedback for:</p>
+<ul class="content-list">
+<li>Successful operations.</li>
+<li>Invalid input.</li>
+<li>Failed operations.</li>
+<li>Loading or long-running operations where relevant.</li>
+<li>Authentication or authorisation failures.</li>
+</ul>
+<h3>11.3 Forms</h3>
+<p>Forms should demonstrate:</p>
+<ul class="content-list">
+<li>Clear labels.</li>
+<li>Appropriate controls.</li>
+<li>Validation messages.</li>
+<li>Preservation of appropriate user input after validation failure.</li>
+<li>Suitable defaults where relevant.</li>
+</ul>
+<h3>11.4 Accessibility</h3>
+<p>Students should demonstrate awareness of accessibility.</p>
+<p>Consideration should be given to areas such as:</p>
+<ul class="content-list">
+<li>Keyboard navigation.</li>
+<li>Semantic HTML.</li>
+<li>Labels for form controls.</li>
+<li>Colour contrast.</li>
+<li>Alternative text.</li>
+<li>Focus indicators.</li>
+<li>Screen-reader compatibility.</li>
+</ul>
+<p>Projects should aim to follow relevant WCAG principles where practical.</p>
+<h3>11.5 Responsive Design</h3>
+<p>Web-based applications should provide an acceptable experience across a reasonable range of screen sizes unless the nature of the project makes this inappropriate.</p></div></details><details class="accordion" id="section-12">
+<summary><span class="section-number">12</span><span>Project Demonstration &amp; Technical Understanding</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>The final demonstration is intended to assess both the completed system and the student&#x27;s understanding of the system they have developed.</p>
+<h3>12.1 Demonstration</h3>
+<p>Students should be able to demonstrate the important workflows of their application.</p>
+<p>The demonstration should include more than the successful or &quot;happy&quot; path.</p>
+<p>Where appropriate, students should demonstrate:</p>
+<ul class="content-list">
+<li>Authentication.</li>
+<li>Different user roles.</li>
+<li>Protected functionality.</li>
+<li>Validation.</li>
+<li>Error handling.</li>
+<li>Important business processes.</li>
+<li>Data persistence.</li>
+<li>External integrations.</li>
+<li>Testing.</li>
+<li>Deployment.</li>
+</ul>
+<h3>12.2 Technical Understanding</h3>
+<p>Students must be able to explain the code and technologies used within their project.</p>
+<p>Students should be prepared to explain:</p>
+<ul class="content-list">
+<li>Application architecture.</li>
+<li>Authentication and authorisation.</li>
+<li>Data modelling.</li>
+<li>API design.</li>
+<li>Testing strategy.</li>
+<li>Deployment approach.</li>
+<li>Important libraries and frameworks.</li>
+<li>Security decisions.</li>
+<li>Significant technical challenges.</li>
+</ul>
+<h3>12.3 Design Decisions</h3>
+<p>Students should be able to justify significant decisions.</p>
+<p>For example:</p>
+<ul class="content-list">
+<li>Why a particular database was selected.</li>
+<li>Why a particular architecture was chosen.</li>
+<li>Why a specific authentication system was used.</li>
+<li>Why particular technologies were selected.</li>
+<li>What alternative approaches were considered.</li>
+</ul>
+<h3>12.4 Limitations</h3>
+<p>Students should be able to identify weaknesses or limitations in their own solution and describe how they would improve the system if development continued.</p>
+<h3>12.5 Third-Party and AI-Assisted Development</h3>
+<p>Students remain responsible for all code submitted as part of their project.</p>
+<p>Where third-party libraries, code-generation tools, tutorials, AI assistants, or other external resources have been used, students must still be capable of explaining the resulting implementation.</p>
+<p>The inability to explain significant sections of the submitted system may be treated as evidence that the student has not demonstrated the required technical understanding.</p></div></details><details class="accordion" id="overall-principle">
+<summary><span class="section-number">•</span><span>Overall Principle</span><span class="chevron">⌄</span></summary>
+<div class="accordion-body"><p>A final-year project should demonstrate the student&#x27;s ability to design, develop, secure, test, document, deploy, and explain a substantial software system.</p>
+<p>The assessment should consider not only whether the software works, but also how it has been designed and engineered.</p>
+<p>The use of modern libraries, frameworks, cloud platforms, identity providers, AI tools, and third-party services is encouraged where appropriate. However, students must understand the technologies they use and remain responsible for the architecture, implementation, security, testing, and quality of the completed system.</p></div></details><div class="footer">Final-Year Software Development Project – Minimum Technical Standards</div></section></div></main></body></html>
